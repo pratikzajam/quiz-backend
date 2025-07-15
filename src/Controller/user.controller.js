@@ -212,7 +212,7 @@ export let getQuiz = async (req, res) => {
             return res.status(200).json({
                 status: true,
                 message: "Quiz Data Fetched Sucessfully",
-                data: "Data"
+                data: questions
             });
         }
 
