@@ -200,6 +200,8 @@ export let getQuiz = async (req, res) => {
     try {
         const questions = await quiz.aggregate([{ $sample: { size: 5 } }]);
 
+        console.log("Code is running")
+
         if (questions.length == 0) {
             return res.status(404).json({
                 status: false,
@@ -210,7 +212,7 @@ export let getQuiz = async (req, res) => {
             return res.status(200).json({
                 status: true,
                 message: "Quiz Data Fetched Sucessfully",
-                data: questions
+                data: "Data"
             });
         }
 
