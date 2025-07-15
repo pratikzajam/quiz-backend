@@ -7,8 +7,14 @@ import 'dotenv/config';
 
 const app = express();
 
+
+
+app.use(cors()); // Allow all origins
+
 // Connect to DB
 connectDb(); // Ensure this runs on import
+
+
 
 // Middleware
 app.use(cors());
