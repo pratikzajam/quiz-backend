@@ -202,7 +202,7 @@ export let getQuiz = async (req, res) => {
         const questions = await quiz.aggregate([{ $sample: { size: 5 } }]);
 
         if (questions.length == 0) {
-            return res.status(200).json({
+            return res.status(404).json({
                 status: false,
                 message: "No Quiz Found",
                 data: null
@@ -216,10 +216,10 @@ export let getQuiz = async (req, res) => {
         }
 
     } catch (error) {
-        return res.status(404).json({
+        return res.status(500).json({
             status: false,
             message: error.message,
-            data: questions
+            data: null
         })
     }
 
