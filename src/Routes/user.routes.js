@@ -11,7 +11,7 @@ Router.post("/signup", signup);
 Router.post("/login", login);
 Router.post("/addquiz", addQuiz);
 Router.get("/getquiz", getQuiz);
-Router.post("/submitquiz", auth, rbac(["user"]), submitQuiz);
+Router.post("/submitquiz", submitQuiz);
 
 
 
