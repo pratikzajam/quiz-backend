@@ -217,7 +217,7 @@ export let getQuiz = async (req, res) => {
     } catch (error) {
         return res.status(500).json({
             status: false,
-            message: error.message,
+            message: error,
             data: null
         });
     }
