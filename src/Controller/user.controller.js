@@ -198,7 +198,6 @@ export let addQuiz = async (req, res) => {
 
 export let getQuiz = async (req, res) => {
     try {
-
         const questions = await quiz.aggregate([{ $sample: { size: 5 } }]);
 
         if (questions.length == 0) {
@@ -206,23 +205,22 @@ export let getQuiz = async (req, res) => {
                 status: false,
                 message: "No Quiz Found",
                 data: null
-            })
+            });
         } else {
             return res.status(200).json({
                 status: true,
                 message: "Quiz Data Fetched Sucessfully",
                 data: questions
-            })
+            });
         }
 
     } catch (error) {
         return res.status(500).json({
             status: false,
-            message: error,
+            message: error.message,
             data: null
-        })
+        });
     }
-
 }
 
 
